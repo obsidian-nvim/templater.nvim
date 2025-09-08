@@ -1,0 +1,3 @@
+return {
+	today = os.date,
+}
