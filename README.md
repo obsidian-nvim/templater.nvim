@@ -13,7 +13,7 @@ Registers `etemplate` for now.
   - [ ] whitespace control
 - [x] command
 - [ ] action to eval expr under cursor/visual selection
-- [ ] user functions
+- [x] user functions
 - [ ] builtin functions
   - [x] system
   - [x] frontmatter

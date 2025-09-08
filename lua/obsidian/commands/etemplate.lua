@@ -12,7 +12,9 @@ local insert_template = function(template_path)
 	local str = template_file:read("*a")
 	template_file:close()
 
-	local ok, compiled = pcall(etlua.render, str, { tp = require("obsidian.templater") })
+	local ok, compiled = pcall(etlua.render, str, {
+		tp = vim.tbl_extend("keep", Obsidian.opts.templater.commands, require("obsidian.templater")),
+	})
 
 	if not ok then
 		---@diagnostic disable-next-line: param-type-mismatch
