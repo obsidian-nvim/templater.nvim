@@ -12,7 +12,12 @@ local insert_template = function(template_path)
 	local str = template_file:read("*a")
 	template_file:close()
 
-	local compiled = vim.F.npcall(etlua.render, str, { tp = require("obsidian.templater") })
+	local ok, compiled = pcall(etlua.render, str, { tp = require("obsidian.templater") })
+
+	if not ok then
+		---@diagnostic disable-next-line: param-type-mismatch
+		return log.err(compiled)
+	end
 
 	assert(compiled, "failed to run template")
 

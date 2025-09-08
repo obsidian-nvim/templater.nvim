@@ -15,3 +15,16 @@ Registers `etemplate` for now.
 - [ ] action to eval expr under cursor/visual selection
 - [ ] user functions
 - [ ] builtin functions
+  - [x] system
+  - [x] frontmatter
+  - [~] date
+  - [~] file
+  - [ ] app
+  - [ ] config
+  - [ ] hooks
+  - [ ] obsidian
+  - [ ] web
+- [ ] **Adavanced**
+  - [ ] LSP injecting highlights
+  - [ ] LSP completion
+  - [ ] LSP diagnostics
