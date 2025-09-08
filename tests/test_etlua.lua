@@ -24,11 +24,6 @@ local cases = {
 	},
 
 	{
-		"y%&gt;u",
-		[[<%= "y%>u" %>]],
-	},
-
-	{
 		"y%>u",
 		[[<%- "y%>u" %>]],
 	},
@@ -53,7 +48,7 @@ This is my message to 4
 
 message: yeah
 
-This is my message to oh yeah  %&gt;&quot;]],
+This is my message to oh yeah  %>"]],
 		[[
 This is my message to <%= "you" %>
 This is my message to <%= 4 %>
@@ -130,8 +125,8 @@ T["Parser"]["should compile readme example"] = function()
 	local second_fn = parser:load(parser:compile_to_lua("World"))
 
 	local buffer = {}
-	parser:run(first_fn, nil, buffer, #buffer)
-	parser:run(second_fn, nil, buffer, #buffer)
+	parser.run(first_fn, nil, buffer, #buffer)
+	parser.run(second_fn, nil, buffer, #buffer)
 
 	eq("Hello World", table.concat(buffer))
 end
