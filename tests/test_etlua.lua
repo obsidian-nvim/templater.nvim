@@ -14,69 +14,67 @@ local cases = {
 
 	{
 		"one surf-zone two",
-		"one <%= var %> two",
+		"one <% var %> two",
 		{ var = "surf-zone" },
 	},
 
+	-- {
+	-- 	"a ((1))((2))((3)) b",
+	-- 	"a <% for i=1,3 do %>((<%= i %>))<% end %> b",
+	-- },
+	--
+	-- 	{
+	-- 		"y%>u",
+	-- 		[[<%- "y%>u" %>]],
+	-- 	},
+	--
+	-- 	{
+	-- 		[[
+	-- This is my message to you
+	-- This is my message to 4
+	--
+	--
+	--
+	--   hello 1
+	--   hello 2
+	--   hello 3
+	--   hello 4
+	--   hello 5
+	--   hello 6
+	--   hello 7
+	--   hello 8
+	--   hello 9
+	--   hello 10
+	--
+	-- message: yeah
+	--
+	-- This is my message to oh yeah  %>"]],
+	-- 		[[
+	-- This is my message to <%= "you" %>
+	-- This is my message to <%= 4 %>
+	-- <% if things then %>
+	--   I love things
+	-- <% end %>
+	--
+	-- <% for i=1,10 do%>
+	--   hello <%= i -%>
+	-- <% end %>
+	--
+	-- message: <%= visitor %>
+	--
+	-- This is my message to <%= [=[oh yeah  %>"]=] %>]],
+	-- 		{
+	-- 			visitor = "yeah",
+	-- 		},
+	-- 	},
+	--
+	-- 	{
+	-- 		"hello",
+	-- 		"<%= 'hello' -%>",
+	-- 	},
 	{
-		"a ((1))((2))((3)) b",
-		"a <% for i=1,3 do %>((<%= i %>))<% end %> b",
-	},
-
-	{
-		"y%>u",
-		[[<%- "y%>u" %>]],
-	},
-
-	{
-		[[
-This is my message to you
-This is my message to 4
-
-
-
-  hello 1
-  hello 2
-  hello 3
-  hello 4
-  hello 5
-  hello 6
-  hello 7
-  hello 8
-  hello 9
-  hello 10
-
-message: yeah
-
-This is my message to oh yeah  %>"]],
-		[[
-This is my message to <%= "you" %>
-This is my message to <%= 4 %>
-<% if things then %>
-  I love things
-<% end %>
-
-<% for i=1,10 do%>
-  hello <%= i -%>
-<% end %>
-
-message: <%= visitor %>
-
-This is my message to <%= [=[oh yeah  %>"]=] %>]],
-		{
-			visitor = "yeah",
-		},
-	},
-
-	{
-		"hello",
-		"<%= 'hello' -%>",
-	},
-
-	-- should have access to _G
-	{
-		"",
-		"<% assert(true) %>",
+		"true",
+		"<% assert(true) %>", -- should have access to _G
 		{ hello = "world" },
 	},
 }

@@ -40,9 +40,7 @@ local pos_to_line = function(str, pos)
 	return line
 end
 
-local Compiler = {
-	html_escape = true,
-}
+local Compiler = { html_escape = true }
 Compiler.__index = Compiler
 
 Compiler.new = function()
@@ -100,8 +98,12 @@ Compiler.compile_chunks = function(self, chunks)
 			self:increment()
 			self:assign(("%q"):format(chunk))
 		elseif "code" == t then
+			-- self:mark(chunk[3])
+			-- self:push(chunk[2], "\n")
+			self:increment()
 			self:mark(chunk[3])
-			self:push(chunk[2], "\n")
+			self:assign()
+			self:push("_tostring(", chunk[2], ")\n")
 		elseif "=" == t or "-" == t then
 			self:increment()
 			self:mark(chunk[3])
